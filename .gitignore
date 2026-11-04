@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+src-tauri/target/
+
+# Tauri bundles
+src-tauri/Wix/
+src-tauri/*.dmg
+src-tauri/*.app
+
+# Logs and OS files
+*.log
+.DS_Store
+
+# Editor files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo

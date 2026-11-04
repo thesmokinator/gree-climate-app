@@ -1,0 +1,119 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+}
+
+/* Size to the content. The window tracks this box, so it must not
+   stretch to the viewport or the fit pass can never shrink. */
+#root {
+  height: auto;
+  overflow: visible;
+}
+
+.dial-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.temp-dial {
+  width: 196px;
+  height: 196px;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+  outline: none;
+}
+
+.temp-dial:active {
+  cursor: grabbing;
+}
+
+.temp-dial.disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.temp-dial:focus-visible {
+  outline: 2px solid var(--mantine-color-teal-5);
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+.dial-track {
+  stroke: var(--mantine-color-gray-3);
+}
+
+[data-mantine-color-scheme="dark"] .dial-track {
+  stroke: var(--mantine-color-dark-4);
+}
+
+.dial-tick {
+  stroke: var(--mantine-color-gray-5);
+}
+
+[data-mantine-color-scheme="dark"] .dial-tick {
+  stroke: var(--mantine-color-dark-3);
+}
+
+.dial-tick.active {
+  stroke: var(--mantine-color-teal-6);
+}
+
+.dial-number {
+  font-size: 38px;
+  font-weight: 700;
+  fill: var(--mantine-color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.dial-room {
+  font-size: 13px;
+  fill: var(--mantine-color-dimmed);
+}
+
+
+
+.mantine-Tabs-list.tabs-list {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.mantine-Tabs-list.tabs-list .device-tab {
+  flex-shrink: 0;
+  white-space: nowrap;
+  cursor: grab;
+  font-size: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.mantine-Tabs-list.tabs-list.tab-dragging,
+.mantine-Tabs-list.tabs-list.tab-dragging .device-tab {
+  cursor: grabbing;
+}
+
+.mantine-Tabs-list.tabs-list.tab-dragging {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.mantine-Tabs-list.tabs-list .settings-tab {
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-left: auto;
+  font-size: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
