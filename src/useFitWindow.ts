@@ -85,10 +85,7 @@ export default function useFitWindow() {
       // next to nothing. Anything shorter must keep growing: settling short
       // would clip the card's bottom edge.
       if (inner >= content && inner - height <= HEIGHT_TOLERANCE) return;
-      invoke("fit_window_height", {
-        height,
-        viewport: inner,
-      }).catch(() => {
+      invoke("fit_window_height", { height }).catch(() => {
         // The next content change, or the safety pass below, retries.
       });
     };

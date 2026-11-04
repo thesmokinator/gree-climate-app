@@ -333,11 +333,7 @@ async fn rename_device(
 /// are bounded and best-effort; the frontend keeps the loop convergent by
 /// never settling for a window shorter than the content.
 #[tauri::command]
-async fn fit_window_height(
-    app: AppHandle,
-    height: f64,
-    viewport: Option<f64>,
-) -> Result<(), String> {
+async fn fit_window_height(app: AppHandle, height: f64) -> Result<(), String> {
     let Some(window) = app.get_webview_window("main") else {
         return Err("Missing main window".to_string());
     };
@@ -356,15 +352,6 @@ async fn fit_window_height(
             .map_err(|e| e.to_string())?
             .to_logical::<f64>(scale)
             .height;
-        #[cfg(debug_assertions)]
-        eprintln!(
-            "[fit] req={} view={} actual={}",
-            size.height,
-            viewport
-                .map(|v| v.to_string())
-                .unwrap_or_else(|| "?".to_string()),
-            actual
-        );
         match next_height_to_request(size.height, actual) {
             Some(grown) => {
                 size.height = grown
