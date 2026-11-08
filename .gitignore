@@ -10,6 +10,9 @@ src-tauri/Wix/
 src-tauri/*.dmg
 src-tauri/*.app
 
+# Local unsigned release artifacts (built by npm run dist:mac)
+dist-release/
+
 # Logs and OS files
 *.log
 .DS_Store
